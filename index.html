@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/leaflet.css">
+<!--    <link rel="stylesheet" href="css/mapbox.css">
+   <script src="js/mapbox.js"></script> -->
+   <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800,900&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="css/style.css">
+   <script src="js/leaflet.js"></script>
+   <script src="js/KML.js"></script>
+   <title>Winter ice</title>
+</head>
+<body>
+   <div class="wrapper">
+      <header class="header">
+         <div class="header__container _container">
+            <a href="index.html" class="header__logo"><img src="img/logo.svg" alt=""></a>
+            <nav class="header__menu">
+               <ul class="header__list">
+                  <li class="header__item">
+                     <a href="#" class="header__link">Новости</a>
+                  </li>
+                  <li class="header__item">
+                     <a href="crossing.html" class="header__link">Переправы</a>
+                     <span class="header__arrow arrow"></span>
+                     <ul class="header__sub-list">
+                        <li class="header__sub-item">
+                           <a href="summer.html" class="header__sub-link">Летние</a>
+                           <a href="winter.html" class="header__sub-link">Зимние</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="header__item">
+                     <a href="projects.html" class="header__link">Проекты</a>
+                  </li>
+                  <li class="header__item">
+                     <a href="management.html" class="header__link">Руководство</a>
+                  </li>
+                  <li class="header__item">
+                     <a href="contacts.html" class="header__link">Контакты</a>
+                  </li>
+                  <li class="header__item">
+                     <a href="company.html" class="header__link">О компании</a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </header>
+      <main class="page">
+         <div id="map" class="map">
+            
+         </div>
+         <div class="page__container _container">
+            <div class="crossings">
+               <div class="ice__title">
+                  По состоянию на 23.06.2022
+               </div>
+               <div class="ice__label">
+                  <div class="ice__open">
+                     <img src="images/green.svg" alt="">
+                     <p>- переправа открыта</p>
+                  </div>
+                  <div class="ice__close">
+                     <img src="images/red.svg" alt="">
+                     <p>- переправа закрыта</p>
+                  </div>
+               </div>
+               <div class="ice__uchastok bpu">
+                  <div class="ice__pu">
+                      Белогорский производственный участок
+                  </div>
+                  <div class="ice__wrapper">
+                      <div class="ice__row ice__row-head">
+                          <div class="ice__road road-title">
+                              Автомобильная дорога
+                          </div>
+                          <div class="ice__river">
+                              Река
+                          </div>
+                          <div class="ice__km">
+                              Км
+                          </div>
+                          <div class="ice__status">
+                              Статус
+                          </div>
+                      </div>
+                      <a href="#" class="ice__row" onclick="markerMitRed([64.161122, 42.297571], 'А/д ст.Паленьга - Светлый, р. Пинега, Закрыто')">
+                          <div class="ice__road">
+                              <img src="images/red.svg" alt="">
+                              <p>ст.Паленьга-Светлый</p>
+                          </div>
+                          <div class="ice__river">
+                              Пинега
+                          </div>
+                          <div class="ice__km">
+                              2
+                          </div>
+                          <div class="ice__status">
+                              Закрыто
+                          </div>
+                      </a>
+                  </div>
+               </div>
+               <div class="ice__uchastok mpu">
+                  <div class="ice__pu">
+                     Мезенский производственный участок
+                  </div>
+                  <div class="ice__wrapper">
+                  <div class="ice__row ice__row-head">
+                     <div class="ice__road road-title">
+                        Автомобильная дорога
+                     </div>
+                     <div class="ice__river">
+                        Река
+                     </div>
+                     <div class="ice__km">
+                        Км
+                     </div>
+                     <div class="ice__status">
+                        Статус
+                     </div>
+                  </div>
+                  <a href="#" class="ice__row" onclick="markerMitRed([65.591189, 44.619157], 'А/д Архангельск-Белогорский-Пинега-Кимжа-Мезень, р. Мезень, закрыто')">
+                     <div class="ice__road">
+                        <img src="images/red.svg" alt="">
+                        <p>Архангельск-Белогорский-Пинега-Кимжа-Мезень</p>
+                     </div>
+                     <div class="ice__river">
+                        Мезень
+                     </div>
+                     <div class="ice__km">
+                        343
+                     </div>
+                     <div class="ice__status">
+                        Закрыто
+                     </div>
+                  </a>
+                  <a href="#" class="ice__row" onclick="markerMitRed([65.624215, 44.607320], 'А/д Архангельск-Белогорский-Пинега-Кимжа-Мезень, р. Пёза, закрыто')">
+                     <div class="ice__road">
+                        <img src="images/red.svg" alt="">
+                        <p>Архангельск-Белогорский-Пинега-Кимжа-Мезень</p>
+                     </div>
+                     <div class="ice__river">
+                         Пёза
+                     </div>
+                     <div class="ice__km">
+                         351
+                     </div>
+                     <div class="ice__status">
+                         Закрыто
+                     </div>
+                  </a>
+                  <a href="#" class="ice__row" onclick="markerMitRed([65.828404, 44.197913], 'А/д Мезень - Каменка - Долгощелье, р. Мезень, закрыто')">
+                     <div class="ice__road">
+                        <img src="images/red.svg" alt="">
+                        <p>Мезень-Каменка-Долгощелье</p>
+                     </div>
+                     <div class="ice__river">
+                        Мезень
+                     </div>
+                     <div class="ice__km">
+                        1
+                     </div>
+                     <div class="ice__status">
+                        Закрыто
+                     </div>
+                  </a>
+                  <a href="#" class="ice__row" onclick="markerMitRed([65.661164, 44.774100], 'А/д Развилка-Бычье, р. Няфта, закрыто')">
+                     <div class="ice__road">
+                        <img src="images/red.svg" alt="">
+                        <p>Развилка-Бычье</p>
+                     </div>
+                     <div class="ice__river">
+                        Няфта
+                     </div>
+                     <div class="ice__km">
+                        7
+                     </div>
+                     <div class="ice__status">
+                        Закрыто
+                     </div>
+                  </a>
+                  <a href="#" class="ice__row" onclick="markerMitRed([65.782181, 45.034288], 'А/д Развилка-Бычье, п. Пёза, закрыто')">
+                     <div class="ice__road">
+                        <img src="images/red.svg" alt="">
+                        <p>Развилка-Бычье</p>
+                     </div>
+                     <div class="ice__river">
+                        п. Пёза
+                     </div>
+                     <div class="ice__km">
+                        28
+                     </div>
+                     <div class="ice__status">
+                        Закрыто
+                     </div>
+                  </a>
+                  </div>
+               </div>
+               <div class="ice__uchastok kpu">
+                  <div class="ice__pu">
+                     Карпогорский производственный участок
+                  </div>
+                  <div class="ice__wrapper">
+                     <div class="ice__row ice__row-head">
+                          <div class="ice__road road-title">
+                              Автомобильная дорога
+                          </div>
+                          <div class="ice__river">
+                              Река
+                          </div>
+                          <div class="ice__km">
+                              Км
+                          </div>
+                          <div class="ice__status">
+                              Статус
+                          </div>
+                     </div>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.029511, 44.111923], 'А/д п.Ясный-подъезд к а/д Карпогоры-Веегора-Лешуконское, р. Пинега, Закрыто')">
+                          <div class="ice__road">
+                              <img src="images/red.svg" alt="">
+                              <p>п.Ясный-подъезд к а/д КВЛ</p>
+                          </div>
+                          <div class="ice__river">
+                              Пинега
+                          </div>
+                          <div class="ice__km">
+                              1
+                          </div>
+                          <div class="ice__status">
+                              Закрыто
+                          </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([63.991281, 44.350056], 'А/д Шотова - Рыбзавод, р. Пинега, Закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Шотова - Рыбзавод</p>
+                        </div>
+                        <div class="ice__river">
+                           р. Пинега
+                        </div>
+                        <div class="ice__km">
+                           2
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.220137, 44.227682], 'А/д Пинега-Чакола-Пиринемь, р. Пинега, Закрыто')">
+                     <div class="ice__road">
+                        <img src="images/red.svg" alt="">
+                        <p>Пинега-Чакола-Пиринемь</p>
+                     </div>
+                     <div class="ice__river">
+                        Пинега
+                     </div>
+                     <div class="ice__km">
+                        89
+                     </div>
+                     <div class="ice__status">
+                        Закрыто
+                     </div>
+                     </a>
+                  </div>
+               </div>
+               <div class="ice__uchastok ppu">
+                  <div class="ice__pu">
+                     Пинежский производственный участок
+                  </div>
+                  <div class="ice__wrapper">
+                     <div class="ice__row ice__row-head">
+                        <div class="ice__road road-title">
+                           Автомобильная дорога
+                        </div>
+                        <div class="ice__river">
+                           Река
+                        </div>
+                        <div class="ice__km">
+                           Км
+                        </div>
+                        <div class="ice__status">
+                           Статус
+                        </div>
+                     </div>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.713112, 43.52026], 'А/д Пинега-Чакола-Пиринемь, р. Пинега, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Пинега-Чакола-Пиринемь</p>
+                        </div>
+                        <div class="ice__river">
+                           Пинега
+                        </div>
+                        <div class="ice__km">
+                           1
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.544512, 43.939191], 'А/д Пинега-Чакола-Пиринемь, р. Пинега, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Пинега-Чакола-Пиринемь</p>
+                        </div>
+                        <div class="ice__river">
+                           Поча
+                        </div>
+                        <div class="ice__km">
+                           34
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                  </div>
+               </div>
+               <div class="ice__uchastok lpu">
+                  <div class="ice__pu">
+                     Лешуконский производственный участок
+                  </div>
+                  <div class="ice__wrapper">
+                     <div class="ice__row ice__row-head">
+                        <div class="ice__road road-title">
+                           Автомобильная дорога
+                        </div>
+                        <div class="ice__river">
+                           Река
+                        </div>
+                        <div class="ice__km">
+                           Км
+                        </div>
+                        <div class="ice__status">
+                           Статус
+                        </div>
+                     </div>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.921430, 45.686322], 'А/д Подъезд к понт.переправе через р.Мезень, р. Мезень, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Подъезд к понт.переправе через р.Мезень (р.Мельничный)</p>
+                        </div>
+                        <div class="ice__river">
+                           Мезень
+                        </div>
+                        <div class="ice__km">
+                           1
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.902496, 45.787128], 'А/д Лешуконское - Олема - Кеба, р. Вашка, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Лешуконское-Олема-Кеба</p>
+                        </div>
+                        <div class="ice__river">
+                           Вашка
+                        </div>
+                        <div class="ice__km">
+                           0
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.610565, 46.075832], 'А/д Лешуконское - Олема - Кеба, р. Вашка, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Лешуконское-Олема-Кеба</p>
+                        </div>
+                        <div class="ice__river">
+                           Вашка
+                        </div>
+                        <div class="ice__km">
+                           44
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.993264, 46.003790], 'А/д Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга, р. Пылема, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга</p>
+                        </div>
+                        <div class="ice__river">
+                           Пылема
+                        </div>
+                        <div class="ice__km">
+                           16
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([65.007676, 46.126537], 'А/д Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга, р. Ираса, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга</p>
+                        </div>
+                        <div class="ice__river">
+                           Ираса
+                        </div>
+                        <div class="ice__km">
+                           22
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.954722, 46.415513], 'А/д Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга, р. Цебьюга, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга</p>
+                        </div>
+                        <div class="ice__river">
+                           Цебьюга
+                        </div>
+                        <div class="ice__km">
+                           41
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.833919, 47.498884], 'А/д Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга, р. Мезень, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга</p>
+                        </div>
+                        <div class="ice__river">
+                           Мезень
+                        </div>
+                        <div class="ice__km">
+                           106
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.542024, 48.003236], 'А/д Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга, руч. Выбор, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Лешуконское-Койнас-Усть-Низемье-Зубово Латьюга</p>
+                        </div>
+                        <div class="ice__river">
+                           Выбор
+                        </div>
+                        <div class="ice__km">
+                           152
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.934973, 45.607621], 'А/д Ущелье - Б. Нисогора, р. Ёжуга, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Ущелье - Б. Нисогора</p>
+                        </div>
+                        <div class="ice__river">
+                           Ёжуга
+                        </div>
+                        <div class="ice__km">
+                           2
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.644088, 47.854013], 'А/д Подъезд к д. Кысса, р. Мезень, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Подъезд к д.Кысса</p>
+                        </div>
+                        <div class="ice__river">
+                           Мезень
+                        </div>
+                        <div class="ice__km">
+                           0
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.667425, 47.803456], 'А/д Подъезд к д. Засулье, р. Мезень, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Подъезд к д. Засулье</p>
+                        </div>
+                        <div class="ice__river">
+                           Мезень
+                        </div>
+                        <div class="ice__km">
+                           0
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.510809, 48.536664], 'А/д Вожгора-Родома, р. М. Пижма, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Вожгора-Родома</p>
+                        </div>
+                        <div class="ice__river">
+                           Мезень
+                        </div>
+                        <div class="ice__km">
+                           3
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                     <a href="#" class="ice__row" onclick="markerMitRed([64.507169, 48.486107], 'А/д Зубово-Вожгора-Лебское, р. Мезень, закрыто')">
+                        <div class="ice__road">
+                           <img src="images/red.svg" alt="">
+                           <p>Зубово-Вожгора-Лебское</p>
+                        </div>
+                        <div class="ice__river">
+                           Мезень
+                        </div>
+                        <div class="ice__km">
+                           1
+                        </div>
+                        <div class="ice__status">
+                           Закрыто
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer class="footer">
+         <div class="footer__container">
+            <p>АО "Мезенское дорожное управление" 2022</p>
+         </div>
+      </footer>
+   </div>
+   <script src="js/script-map.js"></script>
+</body>
+
+    
